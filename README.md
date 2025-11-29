@@ -18,5 +18,5 @@ Modelo de Sistema Comercial Multiusuário com MS-Acess | *Multi-User Business Sy
 
 
 ### 📄 Licença / *License*
-* Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://github.com/laertemjr/MultUS/blob/main/LICENSE.md) para detalhes.
-* *This project is licensed under MIT License* - see the [LICENSE.md](https://github.com/laertemjr/MultUS/blob/main/LICENSE.md) file for details.*
+* Este projeto está sob a licença MIT - veja o arquivo [LICENSE](https://github.com/laertemjr/SistDesk/blob/main/LICENSE.md) para detalhes.
+* *This project is licensed under MIT License* - see the [LICENSE](https://github.com/laertemjr/SistDesk/blob/main/LICENSE.md) file for details.*
