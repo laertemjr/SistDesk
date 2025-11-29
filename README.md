@@ -13,6 +13,11 @@ Modelo de Sistema Comercial Multiusuário com MS-Acess | *Multi-User Business Sy
 * Sem restrições de tempo de uso ou de limitação de recursos / *No time restrictions or resource limitations*
 
 
+### ℹ️ Informações / Informations
+* Usuário administrador: ADM, senha: 123 / *Administrator username: ADM, password: 123*
+* Usuário padrão: USR, senha: 456 / *Default username: USR, password: 456*
+
+
 ### 🛠️ Construído com / *Built with*
 * [![Delphi](https://img.shields.io/badge/-Delphi-E62431?logo=delphi&logoColor=white&style=plastic)](https://www.embarcadero.com/products/delphi) 12.1 Athens
 
