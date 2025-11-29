@@ -1,12 +1,12 @@
 # SistDesk
 
 
-Modelo de Sistema Comercial Multiusuário com MS-Acess | *Multi-User Business System Model with MS-Access*
+Modelo de Sistema Comercial Multiusuário com MS-Acess 64 bits | *Multi-User Business System Model with 64-bit MS-Access*
 <br/>
 <br/>
 ### 🖥️ Pré-requisitos / *System requirements*
 *  [![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows/)
-
+ 
 
 ### 👉 Características / *Features*
 * Sistema ideal para uma rede local até 5 usuários (10 usuários no máximo) / *Ideal system for a local network of up to 5 users (10 users maximum).*
