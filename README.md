@@ -9,6 +9,7 @@ Modelo de Sistema Comercial Multiusuário com MS-Acess | *Multi-User Business Sy
 
 
 ### 👉 Características / *Features*
+* Sistema ideal para até 5 usuários (10 usuários no máximo).
 * Sem restrições de tempo de uso ou de limitação de recursos / *No time restrictions or resource limitations*
 
 
