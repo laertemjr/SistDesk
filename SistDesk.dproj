@@ -147,23 +147,18 @@
         </DelphiCompile>
         <DCCReference Include="uCadCli.pas">
             <Form>frmCadCli</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uCadUsers.pas">
             <Form>frmCadUsers</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uLogin.pas">
             <Form>frmLogin</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uMainMenu.pas">
             <Form>frmMainMenu</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uDM.pas">
             <Form>dm</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="uGlobal.pas"/>

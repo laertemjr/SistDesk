@@ -11,14 +11,24 @@ uses
 
 {$R *.res}
 
+{
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TdmDados, dmDados);
+  Application.Run;
+end.
+}
+
 begin
   ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmLogin, frmLogin);
-  Application.CreateForm(TfrmCadCli, frmCadCli);
-  Application.CreateForm(TfrmCadUsers, frmCadUsers);
-  Application.CreateForm(TfrmMainMenu, frmMainMenu);
+  Application.Title := 'SistDesk';
   Application.CreateForm(Tdm, dm);
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TfrmMainMenu, frmMainMenu);
+  Application.CreateForm(TfrmCadUsers, frmCadUsers);
+  Application.CreateForm(TfrmCadCli, frmCadCli);
   Application.Run;
 end.

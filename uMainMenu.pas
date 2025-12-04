@@ -24,8 +24,11 @@ type
     { Public declarations }
   end;
 
+
+
 var
   frmMainMenu: TfrmMainMenu;
+
 
 implementation
 

@@ -30,8 +30,26 @@ type
     user:string;
   end;
 
+// Criação do registro de Usuários
+TDadosUsuario = record
+  usr_id:Integer;
+  nome_usuario:String;
+  nivel_acesso:Integer;
+  credencial:String;
+  id_session:Integer;
+  acesso1:Boolean;
+  acesso2:Boolean;
+  acesso3:Boolean;
+  acesso4:Boolean;
+  acesso5:Boolean;
+  acesso6:Boolean;
+  estilo:string;
+end;
+
 var
   frmLogin: TfrmLogin;
+  DadosUsuario:TDadosUsuario;
+  tentativas:Integer;
 
 implementation
 
@@ -43,8 +61,17 @@ uses
 
 
 procedure TfrmLogin.FormCreate(Sender: TObject);
+var hMutex : Integer;
 begin
-   KeyPreview := True;
+  hMutex := CreateMutex(0, TRUE, 'GlobalMutex');
+  if GetLastError = ERROR_ALREADY_EXISTS then
+  begin
+      beep;
+      ShowMessage('Já existe uma instância do programa em execução.');
+      Application.Terminate;
+  end;
+  KeyPreview := True;
+  tentativas := 0;
 end;
 
 procedure TfrmLogin.FormShow(Sender: TObject);
@@ -73,13 +100,14 @@ begin
    begin
       user := EdtUser.Text;
       dm.TbUsers.Close;
-      //Self.WindowState := wsMinimized;
+      Self.WindowState := wsMinimized;
       Self.Visible := False;
       frmMainMenu.ShowModal;
       EdtUser.Text := EmptyStr;
       edtSenha.Text := EmptyStr;
       Self.Visible := True;
-      //Self.WindowState := wsNormal;
+      Self.WindowState := wsNormal;
+      ModalResult := mrOk;
    end
    else
    begin
