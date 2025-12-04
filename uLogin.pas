@@ -111,10 +111,19 @@ begin
    end
    else
    begin
-      ShowMessage('Usuário e/ou Senha incorretos.');
-      edtSenha.Text := EmptyStr;
-      EdtUser.SetFocus;
-      EdtUser.SelLength := 0;
+      inc(tentativas); // tentativas := tentativas + 1
+      if tentativas < 3 Then
+        begin
+          MsgAtencao('Login e/ou Senha incorretos, tentativas restantes: ' + IntToStr(3-tentativas));
+          //edtLogin.Text := EmptyStr;
+          //edtSenha.Text := EmptyStr;
+          if EdtUser.CanFocus Then EdtUser.SetFocus;
+        end
+      else
+        begin
+          MsgAtencao('Login e/ou Senha incorretos, acesso ao sistema negado.');
+          Application.Terminate;
+        end;
    end;
 end;
 

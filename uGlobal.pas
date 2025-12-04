@@ -7,6 +7,7 @@ uses
 
 
 function GetVersionInfo(const app:string):string;
+procedure MsgAtencao(pMsg:String);
 function MsgPergunta(pMsg:String; pFocoBotaoSim:Boolean=True):Boolean;
 function GetComputerNameFunc: string;
 
@@ -43,6 +44,11 @@ begin
       FreeMem(Data);
     end;
   end;
+end;
+
+procedure MsgAtencao(pMsg:String);
+begin
+  Application.MessageBox(PChar(pMsg), 'Atenção!', MB_ICONWARNING + MB_OK);
 end;
 
 function MsgPergunta(pMsg:String; pFocoBotaoSim:Boolean=True):Boolean;
