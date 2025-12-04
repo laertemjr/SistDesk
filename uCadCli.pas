@@ -24,10 +24,10 @@ type
     dbLedt_email: TDBLabeledEdit;
     dbLedt_celular: TDBLabeledEdit;
     DBNavigator1: TDBNavigator;
-    StatusBar1: TStatusBar;
     dbLedt_ID: TDBLabeledEdit;
     TbClientes: TFDQuery;
     dsClientes: TDataSource;
+    StatusBar1: TStatusBar;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Tb_ClientesBeforePost(DataSet: TDataSet);
@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-   uDM, uGlobal;
+   uDM, uGlobal, uLogin;
 
 {$R *.dfm}
 // Copyright © 2025 Mancuso Software (laertemjr@outlook.com.br)
@@ -67,7 +67,9 @@ begin
    TbClientes.FieldByName('CLIENTE_ID').Alignment := taCenter;
 
    bOrdemASC := True;
-   StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
+   StatusBar1.Panels[0].Text := 'Usuário: ' + DadosUsuario.nome_usuario;
+   StatusBar1.Panels[1].Text := 'Credencial: ' + DadosUsuario.credencial;
+   //StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
 end;
 
 procedure TfrmCadCli.DBGrid1TitleClick(Column: TColumn);

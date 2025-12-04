@@ -22,9 +22,18 @@ type
     dbLedt_user: TDBLabeledEdit;
     dbLedt_senha: TDBLabeledEdit;
     DBNavigator1: TDBNavigator;
-    StatusBar1: TStatusBar;
     TbUsers: TFDQuery;
     dsUsers: TDataSource;
+    TbUsersUSER_ID: TFDAutoIncField;
+    TbUsersUSER_NAME: TWideStringField;
+    TbUsersUSER_LOGIN: TWideStringField;
+    TbUsersUSER_PASSWORD: TWideStringField;
+    TbUsersUSER_CREDENTIAL: TWideStringField;
+    TbUsersUSER_CLEARANCE: TSmallintField;
+    StatusBar1: TStatusBar;
+    DBLabeledEdit1: TDBLabeledEdit;
+    DBLabeledEdit2: TDBLabeledEdit;
+    DBLabeledEdit3: TDBLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FDTable1BeforePost(DataSet: TDataSet);
@@ -44,7 +53,7 @@ var
 implementation
 
 uses
-   uDM, uGlobal;
+   uDM, uGlobal, uLogin;
 
 {$R *.dfm}
 // Copyright © 2025 Mancuso Software (laertemjr@outlook.com.br)
@@ -58,7 +67,9 @@ begin
    TbUsers.Last;
    TbUsers.First;
    TbUsers.FieldByName('USER_ID').Alignment := taCenter;
-   StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
+   StatusBar1.Panels[0].Text := 'Usuário: ' + DadosUsuario.nome_usuario;
+   StatusBar1.Panels[1].Text := 'Credencial: ' + DadosUsuario.credencial;
+   // StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
 end;
 
 procedure TfrmCadUsers.dbLedt_userExit(Sender: TObject);

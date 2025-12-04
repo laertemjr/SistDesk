@@ -8,6 +8,7 @@ uses
 
 function GetVersionInfo(const app:string):string;
 procedure MsgAtencao(pMsg:String);
+procedure MsgInformacao(pMsg:String);
 function MsgPergunta(pMsg:String; pFocoBotaoSim:Boolean=True):Boolean;
 function GetComputerNameFunc: string;
 
@@ -49,6 +50,11 @@ end;
 procedure MsgAtencao(pMsg:String);
 begin
   Application.MessageBox(PChar(pMsg), 'Atenção!', MB_ICONWARNING + MB_OK);
+end;
+
+procedure MsgInformacao(pMsg:String);
+begin
+  Application.MessageBox(PChar(pMsg), 'Informação:', MB_ICONINFORMATION + MB_OK);
 end;
 
 function MsgPergunta(pMsg:String; pFocoBotaoSim:Boolean=True):Boolean;

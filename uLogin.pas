@@ -27,29 +27,29 @@ type
     procedure localizarBD();
   public
     { Public declarations }
-    user:string;
   end;
 
 // Criação do registro de Usuários
 TDadosUsuario = record
   usr_id:Integer;
   nome_usuario:String;
-  nivel_acesso:Integer;
+  login_usr:String;
   credencial:String;
-  id_session:Integer;
+  nivel_acesso:Integer;
+  {id_session:Integer;
   acesso1:Boolean;
   acesso2:Boolean;
   acesso3:Boolean;
   acesso4:Boolean;
   acesso5:Boolean;
   acesso6:Boolean;
-  estilo:string;
+  estilo:string;}
 end;
 
 var
   frmLogin: TfrmLogin;
-  DadosUsuario:TDadosUsuario;
   tentativas:Integer;
+  DadosUsuario:TDadosUsuario;
 
 implementation
 
@@ -96,9 +96,14 @@ end;
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
-   if dm.TbUsers.Locate('USER_NAME;USER_PASSWORD', VarArrayOf([EdtUser.Text, edtSenha.Text]),[]) then
+   if dm.TbUsers.Locate('USER_LOGIN;USER_PASSWORD', VarArrayOf([EdtUser.Text, edtSenha.Text]),[]) then
    begin
-      user := EdtUser.Text;
+      DadosUsuario.usr_id := dm.TbUsers.FieldByName('USER_ID').AsInteger;
+      DadosUsuario.nome_usuario := dm.TbUsers.FieldByName('USER_NAME').AsString;
+      DadosUsuario.login_usr := dm.TbUsers.FieldByName('USER_LOGIN').AsString;
+      DadosUsuario.credencial := dm.TbUsers.FieldByName('USER_CREDENTIAL').AsString;
+      DadosUsuario.nivel_acesso := dm.TbUsers.FieldByName('USER_CLEARANCE').AsInteger;
+      MsgInformacao('Seja bem-vindo(a) ' + DadosUsuario.nome_usuario + ' !');
       dm.TbUsers.Close;
       Self.WindowState := wsMinimized;
       Self.Visible := False;

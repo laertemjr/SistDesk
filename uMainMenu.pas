@@ -24,11 +24,8 @@ type
     { Public declarations }
   end;
 
-
-
 var
   frmMainMenu: TfrmMainMenu;
-
 
 implementation
 
@@ -40,12 +37,15 @@ uses
 
 procedure TfrmMainMenu.FormShow(Sender: TObject);
 begin
-   if frmLogin.user = 'ADM' then
+   if DadosUsuario.credencial = 'ADM' then
       btnUsers.Enabled := True
    else
       btnUsers.Enabled := False;
-   sVerInfo := GetVersionInfo(Application.ExeName);
-   StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
+
+   StatusBar1.Panels[0].Text := 'Usuário: ' + DadosUsuario.nome_usuario;
+   StatusBar1.Panels[1].Text := 'Credencial: ' + DadosUsuario.credencial;
+   //sVerInfo := GetVersionInfo(Application.ExeName);
+   //StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
 end;
 
 procedure TfrmMainMenu.btnCadCliClick(Sender: TObject);

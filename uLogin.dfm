@@ -31,9 +31,9 @@ object frmLogin: TfrmLogin
   object Label2: TLabel
     Left = 8
     Top = 48
-    Width = 42
+    Width = 30
     Height = 15
-    Caption = 'Usu'#225'rio'
+    Caption = 'Login'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12

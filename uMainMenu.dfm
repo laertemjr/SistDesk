@@ -813,23 +813,20 @@ object frmMainMenu: TfrmMainMenu
     Top = 422
     Width = 624
     Height = 19
-    BiDiMode = bdRightToLeft
     Panels = <
       item
-        BiDiMode = bdLeftToRight
-        ParentBiDiMode = False
-        Text = 'Vers'#227'o '
-        Width = 310
+        Text = 'Usu'#225'rio: '
+        Width = 150
+      end
+      item
+        Text = 'Credencial: '
+        Width = 200
       end
       item
         Alignment = taRightJustify
-        BiDiMode = bdLeftToRight
-        ParentBiDiMode = False
-        Text = 
-          'Copyright '#169' 2025 Mancuso Software (laertemjr@outlook.com.br)    ' +
-          ' '
-        Width = 330
+        Text = 'Desenvolvido por Mancuso Software'#169' 2025     '
+        Width = 50
       end>
-    ParentBiDiMode = False
+    ExplicitTop = 122
   end
 end
