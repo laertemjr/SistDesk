@@ -4,17 +4,19 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Phys, Data.DB, System.IniFiles;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Phys, Data.DB, System.IniFiles,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls, Vcl.Mask;
 
 type
   TfrmLogin = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
-    EdtUser: TEdit;
     btnLogin: TButton;
-    edtSenha: TEdit;
     Label3: TLabel;
     OpenDialog1: TOpenDialog;
+    Image1: TImage;
+    lblEdtLogin: TLabeledEdit;
+    lblEdtSenha: TLabeledEdit;
     procedure btnLoginClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -67,7 +69,7 @@ begin
   if GetLastError = ERROR_ALREADY_EXISTS then
   begin
       beep;
-      ShowMessage('Já existe uma instância do programa em execução.');
+      ShowMessage('O programa já está em execução.');
       Application.Terminate;
   end;
   KeyPreview := True;
@@ -82,7 +84,7 @@ begin
    dm.TbUsers.SQL.Add('SELECT * FROM TB_USERS');
    dm.TbUsers.Open;
    dm.TbUsers.Last;
-   EdtUser.SetFocus;
+   lblEdtLogin.SetFocus;
 end;
 
 procedure TfrmLogin.FormKeyPress(Sender: TObject; var Key: Char);
@@ -96,7 +98,7 @@ end;
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
-   if dm.TbUsers.Locate('USER_LOGIN;USER_PASSWORD', VarArrayOf([EdtUser.Text, edtSenha.Text]),[]) then
+   if dm.TbUsers.Locate('USER_LOGIN;USER_PASSWORD', VarArrayOf([lblEdtLogin.Text, lblEdtSenha.Text]),[]) then
    begin
       DadosUsuario.usr_id := dm.TbUsers.FieldByName('USER_ID').AsInteger;
       DadosUsuario.nome_usuario := dm.TbUsers.FieldByName('USER_NAME').AsString;
@@ -108,8 +110,8 @@ begin
       Self.WindowState := wsMinimized;
       Self.Visible := False;
       frmMainMenu.ShowModal;
-      EdtUser.Text := EmptyStr;
-      edtSenha.Text := EmptyStr;
+      lblEdtLogin.Text := EmptyStr;
+      lblEdtSenha.Text := EmptyStr;
       Self.Visible := True;
       Self.WindowState := wsNormal;
       ModalResult := mrOk;
@@ -121,8 +123,10 @@ begin
         begin
           MsgAtencao('Login e/ou Senha incorretos, tentativas restantes: ' + IntToStr(3-tentativas));
           //edtLogin.Text := EmptyStr;
-          //edtSenha.Text := EmptyStr;
-          if EdtUser.CanFocus Then EdtUser.SetFocus;
+          lblEdtSenha.Text := EmptyStr;
+          lblEdtLogin.SetFocus;
+          lblEdtLogin.SelLength := 0;
+          lblEdtLogin.SelStart := Length(lblEdtLogin.Text);
         end
       else
         begin
