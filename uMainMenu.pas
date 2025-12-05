@@ -15,9 +15,11 @@ type
     btnCadCli: TBitBtn;
     btnUsers: TBitBtn;
     StatusBar1: TStatusBar;
+    BitBtn1: TBitBtn;
     procedure btnCadCliClick(Sender: TObject);
     procedure btnUsersClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +32,7 @@ var
 implementation
 
 uses
-   uCadCli, uCadUsers, uLogin, uGlobal;
+   uCadCli, uCadUsers, uLogin, uGlobal, uAbout;
 
 {$R *.dfm}
 // Copyright © 2025 Mancuso Software (laertemjr@outlook.com.br)
@@ -46,6 +48,11 @@ begin
    StatusBar1.Panels[1].Text := 'Credencial: ' + DadosUsuario.credencial;
    //sVerInfo := GetVersionInfo(Application.ExeName);
    //StatusBar1.Panels[0].Text := '   Versão ' + sVerInfo + ' (2025) Delphi 12.1';
+end;
+
+procedure TfrmMainMenu.BitBtn1Click(Sender: TObject);
+begin
+   frmAboutBox.ShowModal;
 end;
 
 procedure TfrmMainMenu.btnCadCliClick(Sender: TObject);

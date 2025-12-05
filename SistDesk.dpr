@@ -7,7 +7,8 @@ uses
   uLogin in 'uLogin.pas' {frmLogin},
   uMainMenu in 'uMainMenu.pas' {frmMainMenu},
   uDM in 'uDM.pas' {dm: TDataModule},
-  uGlobal in 'uGlobal.pas';
+  uGlobal in 'uGlobal.pas',
+  uAbout in 'uAbout.pas' {frmAboutBox};
 
 {$R *.res}
 
@@ -30,5 +31,6 @@ begin
   Application.CreateForm(TfrmMainMenu, frmMainMenu);
   Application.CreateForm(TfrmCadUsers, frmCadUsers);
   Application.CreateForm(TfrmCadCli, frmCadCli);
+  Application.CreateForm(TfrmAboutBox, frmAboutBox);
   Application.Run;
 end.
