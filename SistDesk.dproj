@@ -95,6 +95,7 @@
         <VerInfo_MajorVer>0</VerInfo_MajorVer>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
+        <Icon_MainIcon>SistDesk_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -121,7 +122,9 @@
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Release>4</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=Mancuso Software ©;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.0;InternalName=;LegalCopyright=MIT license;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4.0;Comments=laertemjr@outlook.com</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Mancuso Software ©;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.1;InternalName=;LegalCopyright=MIT license;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4.1;Comments=laertemjr@outlook.com</VerInfo_Keys>
+        <Icon_MainIcon>SistDesk_Icon.ico</Icon_MainIcon>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -143,7 +146,9 @@
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Release>4</VerInfo_Release>
-        <VerInfo_Keys>CompanyName=Mancuso Software ©;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.0;InternalName=;LegalCopyright=MIT license;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4.0;Comments=laertemjr@outlook.com</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Mancuso Software ©;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.1;InternalName=;LegalCopyright=MIT license;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4.1;Comments=laertemjr@outlook.com</VerInfo_Keys>
+        <Icon_MainIcon>SistDesk_Icon1.ico</Icon_MainIcon>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
