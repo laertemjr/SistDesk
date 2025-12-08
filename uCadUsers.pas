@@ -34,6 +34,7 @@ type
     DBLabeledEdit1: TDBLabeledEdit;
     DBLabeledEdit2: TDBLabeledEdit;
     DBLabeledEdit3: TDBLabeledEdit;
+    TbUsersUSER_STYLE: TWideStringField;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FDTable1BeforePost(DataSet: TDataSet);
@@ -53,7 +54,7 @@ var
 implementation
 
 uses
-   uDM, uGlobal, uLogin;
+   uDM, uGlobal, uLogin, uMainMenu;
 
 {$R *.dfm}
 // Copyright © 2025 Mancuso Software (laertemjr@outlook.com.br)

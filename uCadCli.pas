@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-   uDM, uGlobal, uLogin;
+   uDM, uGlobal, uLogin, uMainMenu;
 
 {$R *.dfm}
 // Copyright © 2025 Mancuso Software (laertemjr@outlook.com.br)

@@ -31,27 +31,9 @@ type
     { Public declarations }
   end;
 
-// Criação do registro de Usuários
-TDadosUsuario = record
-  usr_id:Integer;
-  nome_usuario:String;
-  login_usr:String;
-  credencial:String;
-  nivel_acesso:Integer;
-  {id_session:Integer;
-  acesso1:Boolean;
-  acesso2:Boolean;
-  acesso3:Boolean;
-  acesso4:Boolean;
-  acesso5:Boolean;
-  acesso6:Boolean;
-  estilo:string;}
-end;
-
 var
   frmLogin: TfrmLogin;
   tentativas:Integer;
-  DadosUsuario:TDadosUsuario;
 
 implementation
 
@@ -65,6 +47,9 @@ uses
 procedure TfrmLogin.FormCreate(Sender: TObject);
 var hMutex : Integer;
 begin
+
+  tentativas := 0;
+
   hMutex := CreateMutex(0, TRUE, 'GlobalMutex');
   if GetLastError = ERROR_ALREADY_EXISTS then
   begin
@@ -73,7 +58,7 @@ begin
       Application.Terminate;
   end;
   KeyPreview := True;
-  tentativas := 0;
+
 end;
 
 procedure TfrmLogin.FormShow(Sender: TObject);
@@ -100,20 +85,14 @@ procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
    if dm.TbUsers.Locate('USER_LOGIN;USER_PASSWORD', VarArrayOf([lblEdtLogin.Text, lblEdtSenha.Text]),[]) then
    begin
-      DadosUsuario.usr_id := dm.TbUsers.FieldByName('USER_ID').AsInteger;
+      DadosUsuario.usr_id       := dm.TbUsers.FieldByName('USER_ID').AsInteger;
       DadosUsuario.nome_usuario := dm.TbUsers.FieldByName('USER_NAME').AsString;
-      DadosUsuario.login_usr := dm.TbUsers.FieldByName('USER_LOGIN').AsString;
-      DadosUsuario.credencial := dm.TbUsers.FieldByName('USER_CREDENTIAL').AsString;
+      DadosUsuario.login_usr    := dm.TbUsers.FieldByName('USER_LOGIN').AsString;
+      DadosUsuario.credencial   := dm.TbUsers.FieldByName('USER_CREDENTIAL').AsString;
       DadosUsuario.nivel_acesso := dm.TbUsers.FieldByName('USER_CLEARANCE').AsInteger;
+      DadosUsuario.estilo       := dm.TbUsers.FieldByName('USER_STYLE').AsString;
       MsgInformacao('Seja bem-vindo(a) ' + DadosUsuario.nome_usuario + ' !');
       dm.TbUsers.Close;
-      Self.WindowState := wsMinimized;
-      Self.Visible := False;
-      frmMainMenu.ShowModal;
-      lblEdtLogin.Text := EmptyStr;
-      lblEdtSenha.Text := EmptyStr;
-      Self.Visible := True;
-      Self.WindowState := wsNormal;
       ModalResult := mrOk;
    end
    else
@@ -131,7 +110,7 @@ begin
       else
         begin
           MsgAtencao('Login e/ou Senha incorretos, acesso ao sistema negado.');
-          Application.Terminate;
+          ModalResult := mrCancel;
         end;
    end;
 end;

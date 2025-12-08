@@ -32,12 +32,13 @@ object frmCadUsers: TfrmCadUsers
         Expanded = False
         FieldName = 'USER_ID'
         Title.Alignment = taCenter
-        Title.Caption = 'Usu'#225'rio ID'
+        Title.Caption = 'ID'
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -12
         Title.Font.Name = 'Segoe UI'
         Title.Font.Style = [fsBold]
+        Width = 32
         Visible = True
       end
       item
@@ -50,7 +51,7 @@ object frmCadUsers: TfrmCadUsers
         Title.Font.Height = -12
         Title.Font.Name = 'Segoe UI'
         Title.Font.Style = [fsBold]
-        Width = 181
+        Width = 110
         Visible = True
       end
       item
@@ -87,13 +88,26 @@ object frmCadUsers: TfrmCadUsers
         Title.Font.Height = -12
         Title.Font.Name = 'Segoe UI'
         Title.Font.Style = [fsBold]
-        Width = 98
+        Width = 84
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'USER_CLEARANCE'
+        Title.Caption = 'N'#237'vel de Acesso'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'USER_CLEARANCE'
-        Title.Caption = 'N'#237'vel de Acesso'
+        FieldName = 'USER_STYLE'
+        Title.Alignment = taCenter
+        Title.Caption = 'Estilo'
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -12
@@ -279,6 +293,11 @@ object frmCadUsers: TfrmCadUsers
     object TbUsersUSER_CLEARANCE: TSmallintField
       FieldName = 'USER_CLEARANCE'
       Origin = 'USER_CLEARANCE'
+    end
+    object TbUsersUSER_STYLE: TWideStringField
+      FieldName = 'USER_STYLE'
+      Origin = 'USER_STYLE'
+      Size = 30
     end
   end
   object dsUsers: TDataSource
