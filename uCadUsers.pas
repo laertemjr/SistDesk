@@ -35,12 +35,18 @@ type
     DBLabeledEdit2: TDBLabeledEdit;
     DBLabeledEdit3: TDBLabeledEdit;
     TbUsersUSER_STYLE: TWideStringField;
+    DBchkPC_RESTRITO: TDBCheckBox;
+    DBlblPC_NOME: TDBLabeledEdit;
+    TbUsersUSER_PC_RESTRICTED: TBooleanField;
+    TbUsersUSER_PC_NAME: TWideStringField;
+    TbUserscalcFieldSimOuNao: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FDTable1BeforePost(DataSet: TDataSet);
     procedure dbLedt_userExit(Sender: TObject);
     procedure dbLedt_userKeyPress(Sender: TObject; var Key: Char);
     procedure TbUsersAfterInsert(DataSet: TDataSet);
+    procedure TbUsersCalcFields(DataSet: TDataSet);
 
   private
     { Private declarations }
@@ -92,6 +98,18 @@ end;
 procedure TfrmCadUsers.TbUsersAfterInsert(DataSet: TDataSet);
 begin
    dbLedt_user.SetFocus;
+end;
+
+procedure TfrmCadUsers.TbUsersCalcFields(DataSet: TDataSet);
+begin
+  if DataSet.FieldByName('USER_PC_RESTRICTED').AsBoolean then
+  begin
+    DataSet.FieldByName('calcFieldSimOuNao').AsString := 'Sim';
+  end
+  else
+  begin
+    DataSet.FieldByName('calcFieldSimOuNao').AsString := 'Não';
+  end;
 end;
 
 procedure TfrmCadUsers.FDTable1BeforePost(DataSet: TDataSet);

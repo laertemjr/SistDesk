@@ -15,8 +15,8 @@ type
   Tdm = class(TDataModule)
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     FDPhysMSAccessDriverLink1: TFDPhysMSAccessDriverLink;
-    FDConnection1: TFDConnection;
     TbUsers: TFDQuery;
+    FDConnection1: TFDConnection;
   private
     { Private declarations }
   public

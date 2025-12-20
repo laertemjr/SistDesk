@@ -85,6 +85,15 @@ procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
    if dm.TbUsers.Locate('USER_LOGIN;USER_PASSWORD', VarArrayOf([lblEdtLogin.Text, lblEdtSenha.Text]),[]) then
    begin
+     if (dm.TbUsers.FieldByName('USER_PC_RESTRICTED').AsBoolean) and (dm.TbUsers.FieldByName('USER_PC_NAME').AsString <> Emptystr) then
+     begin
+       if dm.TbUsers.FieldByName('USER_PC_NAME').AsString <> PCName then
+       begin
+          MsgAtencao('Acesso ao usuário negado neste computador.');
+          ModalResult := mrCancel;
+          Exit;
+       end;
+     end;
       DadosUsuario.usr_id       := dm.TbUsers.FieldByName('USER_ID').AsInteger;
       DadosUsuario.nome_usuario := dm.TbUsers.FieldByName('USER_NAME').AsString;
       DadosUsuario.login_usr    := dm.TbUsers.FieldByName('USER_LOGIN').AsString;

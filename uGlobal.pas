@@ -19,6 +19,7 @@ var
    sVerInfo : string;
    bAbortar : Boolean;
    valueNames : TStringList;
+   function PCName:string;
 
 implementation
 
@@ -139,6 +140,16 @@ begin
    dm.TbUsers.FieldByName('USER_STYLE').Value := 'Windows';
    dm.TbUsers.Post;
    dm.TbUsers.Close;
+end;
+
+function PCName:string;
+var
+   lSize:Cardinal;
+   lComputerName: array [0..MAX_PATH] of Char;
+begin
+   lSize := MAX_PATH;
+   GetComputerName(lComputerName, lSize);
+   Result := lComputerName;
 end;
 
 end.

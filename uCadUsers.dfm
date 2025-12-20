@@ -3,7 +3,7 @@ object frmCadUsers: TfrmCadUsers
   Top = 0
   Caption = 'Modelo de Sistema Comercial Multiusu'#225'rio - Cadastro de Usu'#225'rios'
   ClientHeight = 441
-  ClientWidth = 624
+  ClientWidth = 1008
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,7 +16,7 @@ object frmCadUsers: TfrmCadUsers
   object DBGrid1: TDBGrid
     Left = 0
     Top = 176
-    Width = 624
+    Width = 913
     Height = 240
     DataSource = dsUsers
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -114,6 +114,31 @@ object frmCadUsers: TfrmCadUsers
         Title.Font.Name = 'Segoe UI'
         Title.Font.Style = [fsBold]
         Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'calcFieldSimOuNao'
+        Title.Alignment = taCenter
+        Title.Caption = 'Login restrito ?'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = [fsBold]
+        Width = 90
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'USER_PC_NAME'
+        Title.Caption = 'Nome do Computador'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = [fsBold]
+        Visible = True
       end>
   end
   object dbLedt_ID: TDBLabeledEdit
@@ -186,7 +211,7 @@ object frmCadUsers: TfrmCadUsers
   object StatusBar1: TStatusBar
     Left = 0
     Top = 422
-    Width = 624
+    Width = 1008
     Height = 19
     Panels = <
       item
@@ -259,8 +284,43 @@ object frmCadUsers: TfrmCadUsers
     EditLabel.Font.Style = [fsBold]
     EditLabel.ParentFont = False
   end
+  object DBchkPC_RESTRITO: TDBCheckBox
+    Left = 416
+    Top = 80
+    Width = 273
+    Height = 17
+    Caption = 'O usu'#225'rio s'#243' pode fazer login no computador:'
+    DataField = 'USER_PC_RESTRICTED'
+    DataSource = dsUsers
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+  end
+  object DBlblPC_NOME: TDBLabeledEdit
+    Left = 416
+    Top = 119
+    Width = 129
+    Height = 23
+    DataField = 'USER_PC_NAME'
+    DataSource = dsUsers
+    TabOrder = 10
+    EditLabel.Width = 125
+    EditLabel.Height = 15
+    EditLabel.Caption = 'Nome do computador:'
+    EditLabel.Font.Charset = DEFAULT_CHARSET
+    EditLabel.Font.Color = clWindowText
+    EditLabel.Font.Height = -12
+    EditLabel.Font.Name = 'Segoe UI'
+    EditLabel.Font.Style = [fsBold]
+    EditLabel.ParentFont = False
+  end
   object TbUsers: TFDQuery
     AfterInsert = TbUsersAfterInsert
+    OnCalcFields = TbUsersCalcFields
     Connection = dm.FDConnection1
     SQL.Strings = (
       'SELECT * FROM TB_USERS')
@@ -299,11 +359,27 @@ object frmCadUsers: TfrmCadUsers
       Origin = 'USER_STYLE'
       Size = 30
     end
+    object TbUsersUSER_PC_RESTRICTED: TBooleanField
+      FieldName = 'USER_PC_RESTRICTED'
+      Origin = 'USER_PC_RESTRICTED'
+      Required = True
+    end
+    object TbUsersUSER_PC_NAME: TWideStringField
+      FieldName = 'USER_PC_NAME'
+      Origin = 'USER_PC_NAME'
+      Size = 15
+    end
+    object TbUserscalcFieldSimOuNao: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'calcFieldSimOuNao'
+      Size = 3
+      Calculated = True
+    end
   end
   object dsUsers: TDataSource
     AutoEdit = False
     DataSet = TbUsers
     Left = 544
-    Top = 240
+    Top = 232
   end
 end
