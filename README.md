@@ -15,7 +15,7 @@ Modelo de Sistema Comercial Multiusuário com MS-Acess 64 bits | *Multi-User Bus
 
 ### ℹ️ Informações / Informations
 * Usuário administrador, Login: adm1, senha: 123 / *Administrator username, Login: adm1, password: 123*
-* Usuário padrão, Login: bob2, senha: 456 / *Default username, Login: bob2, password: 456*
+
 
 
 ### 🛠️ Construído com / *Built with*
